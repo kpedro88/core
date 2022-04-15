@@ -48,8 +48,8 @@ class TritonModel : public Model {
  public:
   static Status Create(
       InferenceServer* server, const std::string& model_path,
-      const BackendCmdlineConfigMap& backend_cmdline_config_map,
-      const HostPolicyCmdlineConfigMap& host_policy_map,
+      const triton::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
+      const triton::common::HostPolicyCmdlineConfigMap& host_policy_map,
       const std::string& model_name, const int64_t version,
       const inference::ModelConfig& model_config,
       std::unique_ptr<TritonModel>* model);

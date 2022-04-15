@@ -58,8 +58,8 @@ namespace triton { namespace core {
 Status
 TritonModel::Create(
     InferenceServer* server, const std::string& model_path,
-    const BackendCmdlineConfigMap& backend_cmdline_config_map,
-    const HostPolicyCmdlineConfigMap& host_policy_map,
+    const triton::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
+    const triton::common::HostPolicyCmdlineConfigMap& host_policy_map,
     const std::string& model_name, const int64_t version,
     const inference::ModelConfig& model_config,
     std::unique_ptr<TritonModel>* model)
@@ -134,8 +134,8 @@ TritonModel::Create(
   }
 
   // Find/create the backend
-  BackendCmdlineConfig empty_backend_cmdline_config;
-  const BackendCmdlineConfig* config;
+  triton::common::BackendCmdlineConfig empty_backend_cmdline_config;
+  const triton::common::BackendCmdlineConfig* config;
   const auto& itr = backend_cmdline_config_map.find(model_config.backend());
   if (itr == backend_cmdline_config_map.end()) {
     config = &empty_backend_cmdline_config;
